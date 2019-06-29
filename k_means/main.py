@@ -21,9 +21,10 @@ image = image.reshape(image.shape[0] * image.shape[1], 3)
 kmeans = KMeans(n_clusters=128, n_init=10, max_iter=200)   #max_iter：最大迭代次数
 kmeans.fit(image)
 
-#kmeans.cluster_centers_:聚类的中心点
+#kmeans.cluster_centers_:聚类的中心点(每个结果的rgb取值)
 clusters = np.asarray(kmeans.cluster_centers_, dtype=np.uint8)
 print(clusters)
+#kmeans.labels_：每个点的分类结果
 labels = np.asarray(kmeans.labels_, dtype=np.uint8)
 print('labels.shape:',labels.shape)
 labels = labels.reshape(rows, cols);
